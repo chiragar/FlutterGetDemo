@@ -20,22 +20,23 @@ class _FilterScreenState extends State<FilterScreen> {
 
     // TODO: implement initState
     super.initState();
-    datas=userList;
-    // datas= userList.where((filters) {
-    //   final hireDate = DateTime.parse(filters.hireDt!);
-    //   return hireDate
-    //           .isAfter(DateTime(2023, 5, 1)) &&
-    //       hireDate.isBefore(DateTime(2024,4,4));
-    // }).toList();
+    datas= userList.where((filters) {
+      final hireDate = DateTime.parse(filters.hireDt!.split('-').reversed.join('-'));
+      return hireDate
+              .isAfter(DateTime.parse(widget.startDate.toString())) &&
+          hireDate.isBefore(DateTime.parse(widget.endDate.toString()));
+    }).toList();
+;
   }
 
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: AppBar(title: Text("Filter List")),
         body: datas.length == 0
             ? Center(
-                child: CircularProgressIndicator(),
+                child: Text("No Data Found"),
               )
             : ListView.builder(
                 itemCount: datas.length,

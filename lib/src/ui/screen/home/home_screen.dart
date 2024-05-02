@@ -23,7 +23,9 @@ class HomeScreen extends GetView<HomeController> {
         builder: (controller) => Obx(() {
               return Scaffold(
                   appBar: AppBar(
+                    leading: Icon(Icons.home),
                     title: Row(
+                      mainAxisSize: MainAxisSize.min,
                       children: [
                         SizedBox(
                           width: size.width * 0.2,

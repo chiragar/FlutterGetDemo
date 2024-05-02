@@ -14,7 +14,8 @@ class HomeController extends GetxController {
 
   Map<int, Map<int, List<UserModel>>> groupedUsers = {};
 
-  List<UserModel> filteredCandidates =[];
+  List<UserModel> filteredCandidates = [];
+
   @override
   void onInit() {
     // TODO: implement onInit
@@ -44,8 +45,13 @@ class HomeController extends GetxController {
       firstDate: DateTime(2020, 1, 1),
       lastDate: DateTime.now(),
     );
-    if (pickedDate != null) {
+    if (pickedDate != null &&
+        (pickedDate.isBefore(endselectedDate.value) ||
+            endselectedDate.value == null)) {
       startselectedDate.value = pickedDate;
+    } else {
+      Get.snackbar("Error", "From Date to Select Not More then To Date",
+          snackPosition: SnackPosition.BOTTOM);
     }
   }
 
@@ -56,11 +62,13 @@ class HomeController extends GetxController {
       firstDate: DateTime(2020, 1, 1),
       lastDate: DateTime.now(),
     );
-    if (pickedDate != null) {
+    if (pickedDate != null &&
+        (pickedDate.isAfter(startselectedDate.value) ||
+            startselectedDate.value == null)) {
       endselectedDate.value = pickedDate;
+    } else {
+      Get.snackbar("Error", "To Date to Select Not Less then From Date",
+          snackPosition: SnackPosition.BOTTOM);
     }
   }
-
-
-
 }

@@ -104,13 +104,6 @@ class _LoginScreenState extends State<LoginScreen> {
                               );
                             }
                           },
-                          style: ElevatedButton.styleFrom(
-
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(12), // <-- Radius
-                              ),
-                              backgroundColor: Colors.blueAccent,
-                              foregroundColor: Colors.white),
                           child: const Text("Login")),
                     ),
                     SizedBox(height: size.height*0.04),

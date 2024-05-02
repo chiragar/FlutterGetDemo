@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterlivedemo/src/core/assets.dart';
 import 'package:flutterlivedemo/src/data/model/user_model.dart';
+import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
 class DetailScreen extends StatefulWidget {
@@ -21,6 +22,7 @@ class _DetailScreenState extends State<DetailScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var size=MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(),
       body: Padding(
@@ -73,11 +75,10 @@ class _DetailScreenState extends State<DetailScreen> {
                 ),
               ),
             ),
-            const SizedBox(
-              height: 20,
-            ),
-            Text(widget.datas.name ?? ""),
-            Text(widget.datas.email ?? ""),
+            SizedBox(height: size.height*0.04),
+            Text("Name ${widget.datas.name ?? ""}"),
+            SizedBox(height: size.height*0.02),
+            Text("Email ${widget.datas.email ?? ""}"),
           ],
         ),
       ),
