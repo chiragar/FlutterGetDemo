@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterlivedemo/src/controller/home_controller.dart';
 import 'package:flutterlivedemo/src/core/assets.dart';
 import 'package:flutterlivedemo/src/ui/screen/auth/login/login_screen.dart';
+import 'package:flutterlivedemo/src/ui/screen/home/filter_screen.dart';
 import 'package:flutterlivedemo/src/ui/widget/gradient_divider.dart';
 import 'package:flutterlivedemo/src/ui/screen/home/detail_screen.dart';
 import 'package:get/get.dart';
@@ -25,36 +26,47 @@ class HomeScreen extends GetView<HomeController> {
                     title: Row(
                       children: [
                         SizedBox(
-                          width: size.width*0.2,
+                          width: size.width * 0.2,
                           child: TextField(
-                            readOnly: true, // Make the text field read-only
-                            controller: TextEditingController(text: DateFormat('yyyy-MM-dd').format( controller.startselectedDate.value)),
-                            onTap: ()=>controller.startPickDate(), // Call chooseDate on tap
+                            readOnly: true,
+                            // Make the text field read-only
+                            controller: TextEditingController(
+                                text: DateFormat('yyyy-MM-dd').format(
+                                    controller.startselectedDate.value)),
+                            onTap: () => controller.startPickDate(),
+                            // Call chooseDate on tap
                             decoration: InputDecoration(
                               labelText: 'From Date',
                               icon: Icon(Icons.calendar_today),
                             ),
                           ),
                         ),
-
                         SizedBox(
-                          width: size.width*0.2,
+                          width: size.width * 0.2,
                           child: TextField(
-                            readOnly: true, // Make the text field read-only
-                            controller: TextEditingController(text:DateFormat('yyyy-MM-dd').format( controller.endselectedDate.value)),
-                            onTap: ()=>controller.endPickDate(), // Call chooseDate on tap
+                            readOnly: true,
+                            // Make the text field read-only
+                            controller: TextEditingController(
+                                text: DateFormat('yyyy-MM-dd')
+                                    .format(controller.endselectedDate.value)),
+                            onTap: () => controller.endPickDate(),
+                            // Call chooseDate on tap
                             decoration: InputDecoration(
                               labelText: 'To Date',
                               icon: Icon(Icons.calendar_today),
                             ),
                           ),
                         ),
-
                         SizedBox(
-                          width: size.width*0.2,
+                          width: size.width * 0.2,
                           child: ElevatedButton(
-                             onPressed: ()=>{}, // Call chooseDate on tap
-                           child: Text("Filter"),
+                            onPressed: () {
+                              Get.to(FilterScreen(
+                                startDate: controller.startselectedDate.value,
+                                endDate: controller.endselectedDate.value,
+                              ));
+                            }, // Call chooseDate on tap
+                            child: Text("Filter"),
                           ),
                         ),
                       ],

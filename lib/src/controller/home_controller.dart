@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 
 class HomeController extends GetxController {
   var userModel = <UserModel>[].obs;
+  var fiteruserModel = <UserModel>[];
   final UserRepository _userRepository = UserRepository();
   Rx<DateTime> startselectedDate = Rx(DateTime.now());
   Rx<DateTime> endselectedDate = Rx(DateTime.now());
@@ -13,6 +14,7 @@ class HomeController extends GetxController {
 
   Map<int, Map<int, List<UserModel>>> groupedUsers = {};
 
+  List<UserModel> filteredCandidates =[];
   @override
   void onInit() {
     // TODO: implement onInit
@@ -58,4 +60,7 @@ class HomeController extends GetxController {
       endselectedDate.value = pickedDate;
     }
   }
+
+
+
 }
