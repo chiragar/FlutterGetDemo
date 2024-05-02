@@ -12,7 +12,7 @@ class WelcomeController extends GetxController{
     Timer(Duration(seconds: 3), () async {
       final SharedPreferences prefs = await SharedPreferences.getInstance();
       var keys = await prefs.getString('key');
-      if (keys == "abc123") {
+      if (keys == "abc1234") {
         Get.offAll(HomeScreen());
       } else {
         Get.offAll(LoginScreen());

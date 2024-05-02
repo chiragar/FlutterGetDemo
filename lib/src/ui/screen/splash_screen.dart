@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutterlivedemo/src/controller/splash_controler.dart';
+import 'package:flutterlivedemo/src/core/assets.dart';
 import 'package:get/get.dart';
 
 
@@ -18,7 +19,7 @@ class SplashScreen extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                FlutterLogo(size: 70),
+                Image.asset(CustomAssets.gallery,height: MediaQuery.of(context).size.width*0.2,width: MediaQuery.of(context).size.width*0.2,),
                 SizedBox(height: 8),
                 CircularProgressIndicator()
               ],

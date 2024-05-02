@@ -88,18 +88,18 @@ class _LoginScreenState extends State<LoginScreen> {
                           onPressed: () async {
                             if (!_formKey.currentState!.validate()) return;
                             if (_emailController.text.toString().trim() ==
-                                    "admin@gmail.com" &&
+                                    "admin@jdeanssystem.com" &&
                                 _passwordController.text.toString().trim() ==
-                                    "admin123") {
+                                    "Admin@137") {
                               final SharedPreferences prefs =
                                   await SharedPreferences.getInstance();
-                              prefs.setString('key', 'abc123');
+                              prefs.setString('key', 'abc1234');
                               Get.offAll(
                                   HomeScreen()); // Replace with your home screen route
                             } else {
                               Get.snackbar(
                                 'Login Error',
-                                'Invalid username or password \nEmail:admin@gmail.com \nPassword:admin123',
+                                'Invalid username or password \nEmail:admin@jdeanssystem.com \nPassword:Admin@137',
                                 snackPosition: SnackPosition.BOTTOM,
                               );
                             }
