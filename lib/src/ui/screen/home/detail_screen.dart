@@ -7,7 +7,7 @@ import 'package:flutterlivedemo/src/data/model/user_model.dart';
 import 'package:image_picker/image_picker.dart';
 
 class DetailScreen extends StatefulWidget {
-  final UserModel datas;
+  final datas;
 
   const DetailScreen({super.key, required this.datas});
 
